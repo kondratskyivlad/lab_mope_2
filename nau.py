@@ -87,7 +87,6 @@ def find_Rkr(dictionary):
         need_key = m
     return dictionary.get(need_key)
 
-
 def det(a):
     from numpy.linalg import det
     return det(a)
@@ -96,18 +95,16 @@ def det(a):
 def delta_x(min_x, max_x):
     from math import fabs
     return fabs(max_x - min_x) / 2
-
-
 m = 5
 dict_p99 = {2: 1.73, 6: 2.16, 8: 2.43, 10: 2.62, 12: 2.75, 15: 2.9, 20: 3.08}
 dict_p98 = {2: 1.72, 6: 2.13, 8: 2.37, 10: 2.54, 12: 2.66, 15: 2.8, 20: 2.96}
 dict_p95 = {2: 1.71, 6: 2.10, 8: 2.27, 10: 2.41, 12: 2.52, 15: 2.64, 20: 2.78}
 dict_p90 = {2: 1.69, 6: 2, 8: 2.17, 10: 2.29, 12: 2.39, 15: 2.49, 20: 2.62}
 print("-" * 40)
-x1_min = int(input("Input x1 min: "))
-x1_max = int(input("Input x1 max: "))
-x2_min = int(input("Input x2 min: "))
-x2_max = int(input("Input x2 max: "))
+x1_min = -15
+x1_max = 30
+x2_min = -35
+x2_max = 15
 p = float(input("Введіть довірчу імовірність: "))
 print("-" * 40)
 
@@ -213,3 +210,8 @@ out_yellow(" {:.3f} + {:.3f}*{:.3f} + {:.3f}*{:.3f} = {:.3f}".format(
     a0, a1, x1_min, a2, x2_max, a0 + a1 * x1_min + a2 * x2_max))
 out_yellow("Отже, коефіцієнти натуралізованого рівняння регресії вірні.")
 out_blue("-" * 40)
+
+if m > 20:
+    print(f"m = {m} > 20 does not work correctly")
+else:
+    print(f"m = {m} < 20 program successful")
