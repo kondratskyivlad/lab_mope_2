@@ -87,6 +87,7 @@ def find_Rkr(dictionary):
         need_key = m
     return dictionary.get(need_key)
 
+
 def det(a):
     from numpy.linalg import det
     return det(a)
@@ -95,7 +96,10 @@ def det(a):
 def delta_x(min_x, max_x):
     from math import fabs
     return fabs(max_x - min_x) / 2
-m = 5
+
+
+m = 25
+
 dict_p99 = {2: 1.73, 6: 2.16, 8: 2.43, 10: 2.62, 12: 2.75, 15: 2.9, 20: 3.08}
 dict_p98 = {2: 1.72, 6: 2.13, 8: 2.37, 10: 2.54, 12: 2.66, 15: 2.8, 20: 2.96}
 dict_p95 = {2: 1.71, 6: 2.10, 8: 2.27, 10: 2.41, 12: 2.52, 15: 2.64, 20: 2.78}
@@ -110,6 +114,18 @@ print("-" * 40)
 
 y_max = (30 - 13) * 10
 y_min = (20 - 13) * 10
+
+print('-' * 20 + 'Перевірка m' + '-' * 20)
+if m > 20:
+    print(f"m = {m} > 20.  \n "
+          "since m > 20 then we make m = 5")
+    m = 5
+else:
+    print(f"m = {m} < 20 program work good")
+
+print(f'm = {m}')
+
+print('-' * 20 + 'Вивід Програми' + '-' * 20)
 
 while True:
     matrix = generate_matrix()
@@ -210,8 +226,3 @@ out_yellow(" {:.3f} + {:.3f}*{:.3f} + {:.3f}*{:.3f} = {:.3f}".format(
     a0, a1, x1_min, a2, x2_max, a0 + a1 * x1_min + a2 * x2_max))
 out_yellow("Отже, коефіцієнти натуралізованого рівняння регресії вірні.")
 out_blue("-" * 40)
-
-if m > 20:
-    print(f"m = {m} > 20 does not work correctly")
-else:
-    print(f"m = {m} < 20 program successful")
