@@ -10,6 +10,22 @@ def out_blue(text):
     print("\033[34m {}".format(text))
 
 
+valueM = int(input('Введи m: '))
+m = valueM
+
+while valueM > 23:
+    print('Програму не можливо обчислити. Введи m < 23: ')
+    value = input()
+    value = int(value)
+    if value > 23:
+        print(f'{value} > 23, введіть m < 23: ')
+    if value < 23:
+        valueM = value
+        print(f'{value} < 23')
+        break
+
+m = valueM
+
 def generate_matrix():
     from random import randrange
     matrix_with_y = [[randrange(y_min, y_max) for y in range(m)] for x in range(3)]
@@ -97,14 +113,10 @@ def delta_x(min_x, max_x):
     from math import fabs
     return fabs(max_x - min_x) / 2
 
-
-m = 25
-
 dict_p99 = {2: 1.73, 6: 2.16, 8: 2.43, 10: 2.62, 12: 2.75, 15: 2.9, 20: 3.08}
 dict_p98 = {2: 1.72, 6: 2.13, 8: 2.37, 10: 2.54, 12: 2.66, 15: 2.8, 20: 2.96}
 dict_p95 = {2: 1.71, 6: 2.10, 8: 2.27, 10: 2.41, 12: 2.52, 15: 2.64, 20: 2.78}
 dict_p90 = {2: 1.69, 6: 2, 8: 2.17, 10: 2.29, 12: 2.39, 15: 2.49, 20: 2.62}
-print("-" * 40)
 x1_min = -15
 x1_max = 30
 x2_min = -35
@@ -114,18 +126,6 @@ print("-" * 40)
 
 y_max = (30 - 13) * 10
 y_min = (20 - 13) * 10
-
-print('-' * 20 + 'Перевірка m' + '-' * 20)
-if m > 20:
-    print(f"m = {m} > 20.  \n "
-          "since m > 20 then we make m = 5")
-    m = 5
-else:
-    print(f"m = {m} < 20 program work good")
-
-print(f'm = {m}')
-
-print('-' * 20 + 'Вивід Програми' + '-' * 20)
 
 while True:
     matrix = generate_matrix()
